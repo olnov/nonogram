@@ -1,0 +1,239 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.App {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  text-align: center;
+  background: #eaf3fb;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.nonogram-outer-grid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px #0001;
+  padding: 1.5rem 1.5rem 1.5rem 0.5rem;
+  border: 2px solid #b3d1f7;
+  margin: 2rem auto 1rem auto;
+  position: relative;
+  /* The grid will auto-expand based on clues and puzzle size */
+}
+
+.corner-spacer {
+  background: transparent;
+  width: 2.7rem;
+  height: 2.7rem;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.clue.col, .clue.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.1rem;
+  min-height: 2.1rem;
+  background: #fff;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #3a5ba0;
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.clue.col {
+  border-bottom: 2px solid #b3d1f7;
+}
+
+.clue.row {
+  border-right: 2px solid #b3d1f7;
+}
+
+.cell {
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1.5px solid #3a5ba0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: #fafdff;
+  transition: background 0.2s, border 0.2s;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.cell.state-1 {
+  background: #3a5ba0;
+  color: #fff;
+  border: 1.5px solid #3a5ba0;
+}
+
+.cell.state-2 {
+  background: #fafdff;
+  color: #b3d1f7;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.cell.state-0 {
+  background: #fafdff;
+}
+
+.cell.mistake {
+  border: 2.5px solid #e00 !important;
+  background: #ffd6d6 !important;
+  z-index: 2;
+}
+
+.controls {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-top: 2px solid #b3d1f7;
+  box-shadow: 0 -2px 12px #0001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem 0;
+  z-index: 10;
+  gap: 2.5rem;
+}
+
+.action-btn {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 12px;
+  border: 2px solid #3a5ba0;
+  background: #eaf3fb;
+  color: #3a5ba0;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px #0001;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+}
+
+.action-btn.selected, .action-btn:active {
+  background: #3a5ba0;
+  color: #fff;
+  border: 2.5px solid #3a5ba0;
+}
+
+.solved {
+  color: #1a8f1a;
+  font-weight: bold;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+
+.clue-ribbon, .col-ribbon, .row-ribbon {
+  background: #eaf3fb !important;
+  border: 2px solid #fff !important;
+}
+
+.col-ribbon {
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-width: 2.1rem;
+  width: 2.1rem;
+  height: 100%;
+  border-bottom: 2px solid #b3d1f7;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+.row-ribbon {
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-height: 2.1rem;
+  height: 2.1rem;
+  width: 100%;
+  border-right: 2px solid #b3d1f7;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+.clue-number {
+  font-weight: bold;
+  color: #3a5ba0;
+  font-size: 1.1rem;
+  margin: 0 0.1rem;
+  padding: 0;
+  background: none;
+  border: none;
+  display: block;
+  line-height: 1.1;
+}
+
+.col-ribbon .clue-number {
+  margin: 0.08rem 0 0.08rem 0;
+}
+
+.row-ribbon .clue-number {
+  margin: 0 0.08rem 0 0.08rem;
+}
